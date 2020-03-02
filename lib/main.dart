@@ -32,11 +32,11 @@ class Home extends StatelessWidget
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
-            leading: IconButton(
-            icon: Icon(Icons.menu), 
-            tooltip: 'Navigation',
-            onPressed: () => debugPrint('Navigation button is pressed.')
-            ),
+            // leading: IconButton(
+            //  icon: Icon(Icons.menu), 
+            //  tooltip: 'Navigation',
+            //  onPressed: () => debugPrint('Navigation button is pressed.')
+            // ),
             title:Text(
               'FLUTTER APP',
               style: TextStyle(color:Colors.white)
@@ -69,15 +69,33 @@ class Home extends StatelessWidget
             Icon(Icons.directions_bike,size:128.0, color:Colors.black12),
           ]
         ),
-        drawer: Container(
-          color:Colors.white,
-          padding:EdgeInsets.all(8.0),
-          child:Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('This is a drawer !')
-            ],
-          )
+        drawer: Drawer( 
+          child: ListView(
+            padding:EdgeInsets.zero,
+            children:<Widget>[
+              DrawerHeader(
+                child: Text('Header'.toUpperCase()),
+                decoration: BoxDecoration(
+                  color:Colors.grey[100]
+                ),
+              ),
+              ListTile(
+                title:Text('Message',textAlign:TextAlign.right),
+                trailing: Icon(Icons.message,color:Colors.black12,size:22.0),
+                onTap: () => Navigator.pop(context),
+              ),
+              ListTile(
+                title:Text('Favorite',textAlign:TextAlign.right),
+                trailing: Icon(Icons.favorite,color:Colors.black12,size:22.0),
+                onTap: () => Navigator.pop(context),
+              ),
+              ListTile(
+                title:Text('Settings',textAlign:TextAlign.right),
+                trailing: Icon(Icons.settings,color:Colors.black12,size:22.0),
+                onTap: () => Navigator.pop(context),
+              ),
+            ]
+          ),
         ),
       )
     );
