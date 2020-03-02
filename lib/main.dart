@@ -73,10 +73,19 @@ class Home extends StatelessWidget
           child: ListView(
             padding:EdgeInsets.zero,
             children:<Widget>[
-              DrawerHeader(
-                child: Text('Header'.toUpperCase()),
+              UserAccountsDrawerHeader(
+                accountName: Text('邱俊荣'), 
+                accountEmail: Text('qiujunrong@ecpark.cn'),
+                currentAccountPicture: CircleAvatar(
+                    backgroundImage: NetworkImage('https://resources.ninghao.org/images/wanghao.jpg'),
+                ),
                 decoration: BoxDecoration(
-                  color:Colors.grey[100]
+                  color:Colors.green[400],
+                  image: DecorationImage(
+                    image: NetworkImage('https://resources.ninghao.org/images/childhood-in-a-picture.jpg'),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(Colors.green[400].withOpacity(0.6), BlendMode.hardLight)
+                  )
                 ),
               ),
               ListTile(
