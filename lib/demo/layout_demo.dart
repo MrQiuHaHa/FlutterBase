@@ -10,14 +10,8 @@ class LayoutDemo extends StatelessWidget
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              minHeight: 200.0,
-              maxWidth: 200
-            ),
-            child: Container(
-              color: Color.fromRGBO(2, 54, 255, 1.0)
-            ),
+          Container(
+            child: StackDemo()
           )
         ],
       ),

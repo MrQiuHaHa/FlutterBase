@@ -92,6 +92,7 @@ class GridViewCountDemo extends StatelessWidget
       crossAxisCount: 4,
       mainAxisSpacing: 15,
       crossAxisSpacing: 15,
+      childAspectRatio: 1.0,
       scrollDirection: Axis.vertical,
       padding: EdgeInsets.only(
         top: 10,
