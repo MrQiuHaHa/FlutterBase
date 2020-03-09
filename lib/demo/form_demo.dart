@@ -13,10 +13,111 @@ class FormDemo extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextFieldDemo()
+              RegisterForm()
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+
+class RegisterForm extends StatefulWidget {
+  @override
+  _RegisterFormState createState() => _RegisterFormState();
+}
+
+class _RegisterFormState extends State<RegisterForm> {
+
+  final registerFormKey = GlobalKey<FormState>();
+
+  String username, password;
+
+  bool autoValidate = false;
+
+  void submitRegisterForm() {
+
+    if (registerFormKey.currentState.validate()) {
+      registerFormKey.currentState.save();
+      debugPrint('username: $username');
+      debugPrint('password: $password');
+
+      Scaffold.of(context).showSnackBar(
+        SnackBar(content: Text('正在注册'))
+      );
+
+    } else {
+      setState(() {
+        autoValidate = true;
+      });
+    }
+    
+  }
+
+  String validateUserName(value) {
+    if (value.isEmpty) {
+      return 'UserName is required.';
+    }
+    return null;
+  }
+
+  String validatePassWord(value) {
+    if (value.isEmpty) {
+      return 'PassWord is required.';
+    }
+
+    return null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: registerFormKey,
+      child: Column(
+        children: <Widget>[
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: 'UserName',
+              hintText: 'Please input name.',
+              helperText: ''
+            ),
+            // onFieldSubmitted: (value){
+            //   debugPrint('submit: $value');
+            // },
+            onSaved: (value) {
+              username = value;
+            },
+            validator: validateUserName,
+            autovalidate: autoValidate,
+          ),
+          TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: 'PassWord',
+              hintText: 'please input password',
+              helperText: ''
+            ),
+            onSaved: (value) {
+              password = value;
+            },
+            validator: validatePassWord,
+            autovalidate: autoValidate,
+          ),
+          SizedBox(height: 32.0,),
+          Container(
+            width: double.infinity,
+            child: RaisedButton(
+              child: Text(
+                'Register',
+                style: TextStyle(color: Colors.white),
+              ),
+              color: Theme.of(context).accentColor,
+              elevation: 0.0,
+              onPressed: submitRegisterForm,
+            ),
+          )
+        ],
       ),
     );
   }
