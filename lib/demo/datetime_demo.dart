@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'dart:async';
 
 class DateTimeDemo extends StatefulWidget {
   @override
@@ -8,7 +9,38 @@ class DateTimeDemo extends StatefulWidget {
 
 class _DateTimeDemoState extends State<DateTimeDemo> {
 
-  final DateTime _selectdDate = DateTime.now();
+  DateTime _selectdDate = DateTime.now();
+
+  TimeOfDay _selectdTime = TimeOfDay.now();
+
+  Future<void> _selectedDateClick () async {
+     final DateTime date = await showDatePicker (
+      context: context, 
+      initialDate: _selectdDate, 
+      firstDate: DateTime(1990), 
+      lastDate: DateTime(2100)
+    );
+
+    if (date == null) {
+      return;
+    }
+
+    setState(() {
+      _selectdDate = date;
+    });
+
+  }
+
+  Future<void> _selectedTimeClick () async {
+    final TimeOfDay time = await showTimePicker(context: context, initialTime: _selectdTime);
+    if (time == null) {
+      return;
+    }
+
+    setState(() {
+      _selectdTime = time;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +58,20 @@ class _DateTimeDemoState extends State<DateTimeDemo> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 InkWell(
-                  onTap: () {
-
-                  },
+                  onTap: _selectedDateClick,
                   child: Row(
                     children: <Widget>[
-                      Text(DateFormat.yMd().format(_selectdDate)),
+                      Text(DateFormat.yMMMd().format(_selectdDate)),
+                      Icon(Icons.arrow_drop_down)
+                    ],
+                  ),
+                ),
+                SizedBox(width: 15,),
+                InkWell(
+                  onTap: _selectedTimeClick,
+                  child: Row(
+                    children: <Widget>[
+                      Text(_selectdTime.format(context)),
                       Icon(Icons.arrow_drop_down)
                     ],
                   ),
