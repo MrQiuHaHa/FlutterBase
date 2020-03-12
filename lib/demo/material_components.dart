@@ -16,6 +16,7 @@ import '../demo/expansion_panel_demo.dart';
 import '../demo/chip_demo.dart';
 import '../demo/data_table_demo.dart';
 import '../demo/panginate_data_table_demo.dart';
+import '../demo/card_demo.dart';
 
 class MaterialComponents extends StatelessWidget {
   @override
@@ -27,6 +28,7 @@ class MaterialComponents extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          ListItem(title: 'CardDemo',page: CardDemo(),),
           ListItem(title: 'PanginateDataTableDemo',page: PanginateDataTableDemo(),),
           ListItem(title: 'DataTableDemo',page: DataTableDemo(),),
           ListItem(title: 'ChipDemo',page: ChipDemo(),),
