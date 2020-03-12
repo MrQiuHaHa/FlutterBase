@@ -54,6 +54,11 @@ class _ChipDemoState extends State<ChipDemo> {
                     child: Text('邱'),
                   ),
                 ),
+                Divider(
+                  color: Colors.grey[400],
+                  height: 16,
+                  indent: 30,
+                )
 
               ],
             )
