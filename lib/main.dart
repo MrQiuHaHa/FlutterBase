@@ -10,6 +10,8 @@ import './demo/navigator_demo.dart';
 import './demo/form_demo.dart';
 import './demo/material_components.dart';
 
+import './demo/state/state_management_demo.dart';
+
 void main () => runApp(App()); 
 
 
@@ -22,18 +24,19 @@ class App extends StatelessWidget
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: Home(),
-      initialRoute: '/mdc',
+      initialRoute: '/state-management',
       routes: {
         // '/':(context) => NavigatorDemo(),
         '/about':(context) => Page(title: 'About',),
         '/form':(context) => FormDemo(),
-        '/mdc': (context) => MaterialComponents()
+        '/mdc': (context) => MaterialComponents(),
+        '/state-management': (context) => StateManagementDemo()
       },
       theme: ThemeData(
           primarySwatch: Colors.green,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
           splashColor: Colors.white70,
-          accentColor: Colors.blueAccent
+          accentColor: Colors.blue
       )
     );
   }
