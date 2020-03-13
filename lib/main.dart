@@ -12,6 +12,8 @@ import './demo/material_components.dart';
 
 import './demo/state/state_management_demo.dart';
 
+import './demo/stream/stream_demo.dart';
+
 void main () => runApp(App()); 
 
 
@@ -24,13 +26,14 @@ class App extends StatelessWidget
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: Home(),
-      initialRoute: '/state-management',
+      initialRoute: '/stream',
       routes: {
         // '/':(context) => NavigatorDemo(),
         '/about':(context) => Page(title: 'About',),
         '/form':(context) => FormDemo(),
         '/mdc': (context) => MaterialComponents(),
-        '/state-management': (context) => StateManagementDemo()
+        '/state-management': (context) => StateManagementDemo(),
+        '/stream': (context) => StreamDemo()
       },
       theme: ThemeData(
           primarySwatch: Colors.green,
