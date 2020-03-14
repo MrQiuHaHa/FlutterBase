@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/demo/http/http_demo.dart';
 import './demo/Drawer_demo.dart';
 import './demo/bottom_navigation_bar_demo.dart';
 import './demo/listview_demo.dart';
@@ -30,7 +31,7 @@ class App extends StatelessWidget
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: Home(),
-      initialRoute: '/bloc',
+      initialRoute: '/http',
       routes: {
         // '/':(context) => NavigatorDemo(),
         '/about':(context) => Page(title: 'About',),
@@ -40,6 +41,7 @@ class App extends StatelessWidget
         '/stream': (context) => StreamDemo(),
         '/rxdart': (context) => RxdartDemo(),
         '/bloc': (context) => BlocDemo(),
+        '/http': (context) => HttpDemo(),
       },
       theme: ThemeData(
           primarySwatch: Colors.green,
