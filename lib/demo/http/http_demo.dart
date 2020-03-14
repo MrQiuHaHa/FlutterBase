@@ -27,9 +27,9 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
 
   @override
   void initState() {
-    fetchPosts().then((onvalue) {
-      print(onvalue);
-    });
+    // fetchPosts().then((onvalue) {
+    //   print(onvalue);
+    // });
 
     // final post = {
     //   'title': 'hello',
@@ -67,8 +67,26 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return FutureBuilder(
+      future: fetchPosts(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: Text('Load....'),
+          );
+        }
+        return ListView(
+          children: snapshot.data.map<Widget>((item){
+            return ListTile(
+              title: Text(item.title),
+              subtitle: Text(item.author),
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(item.imageUrl),
+              ),
+            );
+          }).toList(),
+        );
+      },
     );
   }
 }
