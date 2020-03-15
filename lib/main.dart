@@ -19,6 +19,8 @@ import './demo/rxdart/rxdart_demo.dart';
 
 import './demo/bloc/bloc_demo.dart';
 
+import './demo/animation/animation_demo.dart';
+
 void main () => runApp(App()); 
 
 
@@ -31,7 +33,7 @@ class App extends StatelessWidget
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: Home(),
-      initialRoute: '/http',
+      initialRoute: '/animation',
       routes: {
         // '/':(context) => NavigatorDemo(),
         '/about':(context) => Page(title: 'About',),
@@ -42,6 +44,7 @@ class App extends StatelessWidget
         '/rxdart': (context) => RxdartDemo(),
         '/bloc': (context) => BlocDemo(),
         '/http': (context) => HttpDemo(),
+        '/animation': (context) => AnimationDemo()
       },
       theme: ThemeData(
           primarySwatch: Colors.green,
