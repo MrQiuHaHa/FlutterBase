@@ -33,7 +33,7 @@ class _AnimationDemoHomeState extends State<AnimationDemoHome> with TickerProvid
       // lowerBound: 10.0,
       // upperBound: 100.0,//这些值的设置也可以用下面的Tween小固件设置
       duration: Duration(seconds: 1),
-      vsync: this
+      vsync: this //看上面with TickerProviderStateMixin，vsync电子信号枪跟进设置的duration内获取帧率
     );
 
     curve = CurvedAnimation(parent: animationDemoController, curve: Curves.easeInOutBack);//设置一些非简单的匀速动效
