@@ -12,14 +12,11 @@ import './demo/form_demo.dart';
 import './demo/material_components.dart';
 
 import './demo/state/state_management_demo.dart';
-
 import './demo/stream/stream_demo.dart';
-
 import './demo/rxdart/rxdart_demo.dart';
-
 import './demo/bloc/bloc_demo.dart';
-
 import './demo/animation/animation_demo.dart';
+import './demo/i18n/i18n_demo.dart';
 
 void main () => runApp(App()); 
 
@@ -33,7 +30,7 @@ class App extends StatelessWidget
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: Home(),
-      initialRoute: '/animation',
+      initialRoute: '/i18n',
       routes: {
         // '/':(context) => NavigatorDemo(),
         '/about':(context) => Page(title: 'About',),
@@ -44,7 +41,8 @@ class App extends StatelessWidget
         '/rxdart': (context) => RxdartDemo(),
         '/bloc': (context) => BlocDemo(),
         '/http': (context) => HttpDemo(),
-        '/animation': (context) => AnimationDemo()
+        '/animation': (context) => AnimationDemo(),
+        '/i18n': (context) => I18NDemo()
       },
       theme: ThemeData(
           primarySwatch: Colors.green,
