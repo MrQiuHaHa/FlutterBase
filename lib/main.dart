@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/demo/http/http_demo.dart';
+import 'package:flutter_app/demo/i18n/map/ninghao_demo_localizations.dart';
 import './demo/Drawer_demo.dart';
 import './demo/bottom_navigation_bar_demo.dart';
 import './demo/listview_demo.dart';
@@ -30,7 +31,12 @@ class App extends StatelessWidget
     // TODO: implement build
 
     return MaterialApp(
+      // locale: Locale('zh','CN'),
+      localeResolutionCallback: (Locale locale, Iterable<Locale> supportedLocales) {
+        return Locale('zh','CN');//写死具体哪种语言，就不再跟随系统语言自动切换了
+      },
       localizationsDelegates: [
+        NinghaoDemoLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
