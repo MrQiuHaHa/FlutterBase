@@ -18,6 +18,8 @@ import './demo/bloc/bloc_demo.dart';
 import './demo/animation/animation_demo.dart';
 import './demo/i18n/i18n_demo.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 void main () => runApp(App()); 
 
 
@@ -28,6 +30,14 @@ class App extends StatelessWidget
     // TODO: implement build
 
     return MaterialApp(
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en','US'),
+        Locale('zh','CN')
+      ],
       debugShowCheckedModeBanner: false,
       // home: Home(),
       initialRoute: '/i18n',
