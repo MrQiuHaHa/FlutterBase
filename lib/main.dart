@@ -11,7 +11,6 @@ import './demo/sliver_demo.dart';
 import './demo/navigator_demo.dart';
 import './demo/form_demo.dart';
 import './demo/material_components.dart';
-
 import './demo/state/state_management_demo.dart';
 import './demo/stream/stream_demo.dart';
 import './demo/rxdart/rxdart_demo.dart';
@@ -20,6 +19,8 @@ import './demo/animation/animation_demo.dart';
 import './demo/i18n/i18n_demo.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'demo/navigator_demo.dart';
 
 void main () => runApp(App()); 
 
@@ -45,11 +46,11 @@ class App extends StatelessWidget
         Locale('zh','CN')
       ],
       debugShowCheckedModeBanner: false,
-      // home: Home(),
-      initialRoute: '/i18n',
+      home: Home(),
+      // initialRoute: '/mdc',
       routes: {
         // '/':(context) => NavigatorDemo(),
-        '/about':(context) => Page(title: 'About',),
+        '/about':(context) => Pages(),
         '/form':(context) => FormDemo(),
         '/mdc': (context) => MaterialComponents(),
         '/state-management': (context) => StateManagementDemo(),
